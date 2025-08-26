@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 from datetime import datetime
-from fpdf import FPDF
 from io import BytesIO
 
 # --- CONEXÃO COM O BANCO ---
