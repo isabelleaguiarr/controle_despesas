@@ -92,17 +92,4 @@ if dados:
     csv = df_export.to_csv(index=False).encode('utf-8')
     st.download_button("💾 Baixar CSV", data=csv, file_name="despesas.csv", mime="text/csv")
 
-    # PDF
-    def gerar_pdf(df):
-        pdf = FPDF()
-        pdf.add_page()
-        pdf.set_font("Arial", size=12)
-        for i, row in df.iterrows():
-            pdf.cell(0, 10, f"{row['Descrição']} | {row['Categoria']} | {row['Valor']} R$ | {row['Data']}", ln=1)
-        buffer = BytesIO()
-        pdf.output(buffer)
-        buffer.seek(0)
-        return buffer
-
-    pdf_file = gerar_pdf(df_export)
-    st.download_button("📄 Baixar PDF", data=pdf_file, file_name="despesas.pdf", mime="application/pdf")
+    
